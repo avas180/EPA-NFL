@@ -46,7 +46,7 @@ class XGBoostResult:
     rows: int
 
 
-def _prepare_training_frame(years: Iterable[int]) -> pd.DataFrame:
+def prepare_training_frame(years: Iterable[int]) -> pd.DataFrame:
     """
     Load data, construct targets, and return a modeling-ready DataFrame.
 
@@ -79,7 +79,7 @@ def train_xgboost_model(
     Train and evaluate an XGBoost EP regression model.
     """
 
-    data = _prepare_training_frame(years)
+    data = prepare_training_frame(years)
     X = data[FEATURE_COLUMNS]
     y = data[TARGET_COLUMN]
 
